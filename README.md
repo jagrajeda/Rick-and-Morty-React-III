@@ -1,25 +1,16 @@
-# Rick and Morty React
+# React + Vite
 
-Create a project for the Rick and Morty show. By the end of this assignment your project should meet the following requirements:
-  
-  - Vite + React Development Environment
-  - HomePage.jsx, App.jsx, router.jsx
-  - React Router's browser router (`createBrowserRouter`) connected to App.jsx
-  - HomePage.jsx should render a quick "Attention Getter" to get people to watch the show at [http://localhost:5173/](http://localhost:5173/)
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## Setup
+Currently, two official plugins are available:
 
-```sh
-npm create vite@latest rick-and-morty -- --template react
-cd rick-and-morty
-npm install
-npm install react-router
-npm run dev
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-React Router 8 needs Node 22.22+ (the devcontainer uses Node 24). It is one package, `react-router`: `react-router-dom` stopped at version 7, so skip tutorials that install it or use `<BrowserRouter>`, `<Switch>`, `useHistory` or `history.push`.
+## React Compiler
 
-- `RouterProvider` comes from `'react-router/dom'`; everything else (`createBrowserRouter`, `Outlet`, `Link`, the hooks) comes from `'react-router'`.
-- In `router.jsx`, create the router with `createBrowserRouter`: `App` is the route for `/`, and `HomePage` is one of its `children`.
-- `App.jsx` renders an `<Outlet />` where the current page should appear.
-- In `main.jsx`, render `<RouterProvider router={router} />` instead of `<App />`.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the Oxlint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
