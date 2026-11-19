@@ -38,4 +38,15 @@ describe('Rick and Morty App', () => {
     cy.contains('a', 'Back home').click();
     cy.location('pathname').should('eq', '/');
   });
+
+  it('navigates to character details via useNavigate and displays character info via useParams', () => {
+    cy.visit('/characters');
+    cy.contains('.card', 'Rick Sanchez').contains('button', 'View Details').click();
+    cy.location('pathname').should('eq', '/characters/1');
+    cy.contains('.card-title', 'Rick Sanchez').should('be.visible');
+    cy.contains('Status: Alive').should('be.visible');
+    cy.contains('button', 'Back to Characters').click();
+    cy.location('pathname').should('eq', '/characters');
+  });
+
 });

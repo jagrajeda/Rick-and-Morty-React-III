@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router';
 import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -11,6 +12,7 @@ function CharactersPage() {
   const [url, setUrl] = useState('https://rickandmortyapi.com/api/character');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchCharacters() {
@@ -69,6 +71,13 @@ function CharactersPage() {
                   <br />
                   <strong>Origin:</strong> {char.origin.name}
                 </Card.Text>
+                <Button
+                  variant="outline-primary"
+                  size="sm"
+                  onClick={() => navigate(`/characters/${char.id}`)}
+                >
+                  View Details
+                </Button>
               </Card.Body>
             </Card>
           </Col>
